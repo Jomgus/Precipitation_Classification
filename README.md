@@ -25,18 +25,23 @@ This project uses a weather dataset from kaggle [linked here](https://www.kaggle
 The primary visualizations used to assess model performance were accuracy and loss plots via MatPlotLib. These were created with every model created, along with evaluations scores Precision, Recall, F1-Score, and Accuracy. 
 
 - **Feasibility Accuracy / Loss**
+![F_A_L](plots/feasibility_accuracy_loss.png)
+
 
 These initial feasibility plots shows promise with no obvious overfitting and attractive train and validation trends as they follow each other closely and trend toward where they should. Of course, these are only 10 Epochs so there is much upside from here.
 
 - **Prototype Accuracy / Loss**
+![P_A_L](plots/prototype_accuracy_loss.png)
 
 The first prototype model immediately stands out as having erratic training accuracy and loss across all epochs. This could be due to a variety of things, though notably the validation accuracy and loss is showing tremendous stability. This means that the erratic behavior of the training data is not immediately necessary to address. We also see that the validation loss is a bit flat at the end. This presents a perfect opportunity to utilize **Early Stopping** from keras to avoid . 
 
 - **Early Stopping Accuracy / Loss**
+![E_S_A_L](Early_Stop_Acc_Loss.png)
 
 With Early Stopping implemented, we can see that training data has remained erratic. However, validation accuracy and loss are now more stably trending toward where they should be. The eval metrics results of this model confirm it is our most balanced, high performing, and reliable model.
 
 - **Lower Learning Rate Accuracy / Loss**
+![LLRAL](LLR_Acc_Loss.png)
 
 Here the erratic training is officially addressed through learning rate. Lowering the lowering rate over tenfold has little to no effect on stability, which leaves me to believe that the instability is due to something more fundamental like the size of the dataset or the complexity of the unfrozen VGG16 model. Again, 
 
